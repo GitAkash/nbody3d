@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import matplotlib
-
 matplotlib.use('TkAgg')
 
 
@@ -41,7 +40,7 @@ class Particle:
         self.velocity = velocity
         self.mass = mass
         self.acceleration = Vec3D(0, 0, 0)
-        self.G = 1
+        self.G = 0.5
 
         self.i = Particle.n
         Particle.n += 1
@@ -62,15 +61,18 @@ class Particle:
         self.velocity += self.acceleration * dt
         self.position += self.velocity * dt
 
-
-# Setting up the simulation
 par = []
-par.append(Particle(Vec3D(0, 0, 0), Vec3D(0.5, 0.5, 0.5), 1))
-par.append(Particle(Vec3D(10, 8, 7), Vec3D(0.5, 0.5, 0.5), 1))
 
-n = len(par)
+############### Setting up the simulation ###############
+par.append(Particle(Vec3D(0, 0, 0), Vec3D(0.5, 0.5, 0.5), 1))
+par.append(Particle(Vec3D(0, 0, 10), Vec3D(0.5, 0.5, 0.5), 1))
+par.append(Particle(Vec3D(-10, 10, 0), Vec3D(0.5, 0.5, 2), 100))
 dt = 1
 
+#########################################################
+
+
+n = len(par)
 # Plotting the simulation
 fig = plt.figure()
 ax = fig.add_subplot(projection="3d")
