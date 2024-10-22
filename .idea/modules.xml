@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../nbody-problem/.idea/nbody-problem.iml" filepath="$PROJECT_DIR$/../nbody-problem/.idea/nbody-problem.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/nbody3d.iml" filepath="$PROJECT_DIR$/.idea/nbody3d.iml" />
     </modules>
   </component>

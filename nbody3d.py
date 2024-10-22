@@ -1,7 +1,9 @@
 import numpy as np
-from sympy.physics.units import acceleration
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 
 
+# Setup a Vec3D class.
 class Vec3D:
     def __init__(self, x, y, z):
         self.x = x
@@ -11,15 +13,14 @@ class Vec3D:
     def get_length(self):
         return np.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
 
-
+# Setting up particles.
 class Particle:
     n = 0
 
-    def __init__(self, position, velocity, mass, radius):
+    def __init__(self, position, velocity, mass):
         self.position = position
         self.velocity = velocity
         self.mass = mass
-        self.radius = radius
         self.acceleration = Vec3D(0, 0, 0)
         self.G = 1
 
@@ -37,3 +38,16 @@ class Particle:
                     continue
                 f = (self.G * self.mass * particles[j].mass) / len_vec ** 2
                 self.acceleration += (f / self.mass) * unit_vec
+
+    def update(self, dt):
+        self.velocity += self.acceleration * dt
+        self.position += self.velocity * dt
+
+
+# Setting up the simulation
+par = []
+par.append(Particle(Vec3D(0, 0, 0), Vec3D(0.5, 0.5, 0.5), 1))
+
+
+
+
