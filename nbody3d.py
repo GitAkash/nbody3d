@@ -35,5 +35,5 @@ class Particle:
                 unit_vec = dir_vec / len_vec
                 if len_vec == 0:
                     continue
-                f = (self.G * self.mass * particles[j].mass) / dir_vec ** 2
+                f = (self.G * self.mass * particles[j].mass) / len_vec ** 2
                 self.acceleration += (f / self.mass) * unit_vec
